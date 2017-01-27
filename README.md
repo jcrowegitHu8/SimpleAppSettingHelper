@@ -19,8 +19,11 @@ using SimpleAppSettingHelper;
   //get a string if it doesn't exist an error will be thrown.
   var aString = CurrentAppSettings.Get("my:String");
   
+  //get a string and don't throw an error if it doesn't exist.
+  var aString = CurrentAppSettings.Get("my:String",false);
+  
   //get a string set a default if the value has not been specified.
-  var aString2 = CurrentAppSettings.Get("my:String",false,"default");
+  var aString3 = CurrentAppSettings.Get("my:String",false,"default");
   
   //getting value and specifying the type.
   var anInt = CurrentAppSettings.Get<int>("my:Int");
