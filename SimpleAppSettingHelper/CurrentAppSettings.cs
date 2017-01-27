@@ -24,7 +24,7 @@ namespace SimpleAppSettingHelper
         /// <returns></returns>
         public static string Get(string keyName, bool ifValueIsNullOrEmptyThrowArgumentException = true, string defaultValue = "")
         {
-            return GetAppSetting(GetCurrentlyRunningApplicationConfig(), keyName, ifValueIsNullOrEmptyThrowArgumentException, defaultValue);
+            return Get(GetCurrentlyRunningApplicationConfig(), keyName, ifValueIsNullOrEmptyThrowArgumentException, defaultValue);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace SimpleAppSettingHelper
         /// <returns></returns>
         public static T Get<T>(string keyName, bool ifValueIsNullOrEmptyThrowArgumentException = true)
         {
-            object value = GetAppSetting(GetCurrentlyRunningApplicationConfig(), keyName, ifValueIsNullOrEmptyThrowArgumentException, String.Empty);
+            object value = Get(GetCurrentlyRunningApplicationConfig(), keyName, ifValueIsNullOrEmptyThrowArgumentException, String.Empty);
 
             if (typeof(Guid) == typeof(T))
             {
@@ -54,7 +54,7 @@ namespace SimpleAppSettingHelper
         /// <param name="ifValueIsNullOrEmptyThrowArgumentException">If the value is null or empty should an application exception be thrown</param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static string GetAppSetting(string configFile, string keyName,
+        public static string Get(string configFile, string keyName,
             bool ifValueIsNullOrEmptyThrowArgumentException = true, string defaultValue = "")
         {
             var result = string.Empty;
