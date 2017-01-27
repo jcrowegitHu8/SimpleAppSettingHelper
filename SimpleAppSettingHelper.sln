@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleAppSettingHelper", "SimpleAppSettingHelper\SimpleAppSettingHelper.csproj", "{29D3B352-65C4-43DB-A2F6-90157CB2F180}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleAppSettingHelperTest", "SimpleAppSettingHelperTest\SimpleAppSettingHelperTest.csproj", "{62ECAE9C-9675-4B7C-9C82-A77F14D57D29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29D3B352-65C4-43DB-A2F6-90157CB2F180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D3B352-65C4-43DB-A2F6-90157CB2F180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D3B352-65C4-43DB-A2F6-90157CB2F180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D3B352-65C4-43DB-A2F6-90157CB2F180}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62ECAE9C-9675-4B7C-9C82-A77F14D57D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62ECAE9C-9675-4B7C-9C82-A77F14D57D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62ECAE9C-9675-4B7C-9C82-A77F14D57D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62ECAE9C-9675-4B7C-9C82-A77F14D57D29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
