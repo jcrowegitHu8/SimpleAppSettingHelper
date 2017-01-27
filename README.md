@@ -3,6 +3,7 @@ A simple tool to allow you to quickly pull an application setting from your web 
 
 ##Basic Usage
 ```xml
+<!-- Example of supported types -->
 <appSettings>
     <add key="my:String" value="HelloWorld" />
     <add key="my:Int" value="12345" />
@@ -22,8 +23,8 @@ using SimpleAppSettingHelper;
   var aString2 = CurrentAppSettings.Get("my:String",false,"default");
   
   //getting value and specifying the type.
-  var anInt = CurrentAppSettings.Get<int>("my:Int")
-  var aGuid = CurrentAppSettings.Get<Guid>("my:Guid")
-  var aBool = CurrentAppSettings.Get<bool>("my:Bool")
-  var aDate = CurrentAppSettings.Get<DateTime>("my:DateTime")
+  var anInt = CurrentAppSettings.Get<int>("my:Int");
+  var aGuid = CurrentAppSettings.Get<Guid>("my:Guid");
+  var aBool = CurrentAppSettings.Get<bool>("my:Bool");
+  var aDate = CurrentAppSettings.Get<DateTime>("my:DateTime");
 ```
