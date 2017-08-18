@@ -1,4 +1,5 @@
 ﻿using System;
+using AppSettingHelperTest.Enums;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AppSettingHelperTest
@@ -101,5 +102,42 @@ namespace AppSettingHelperTest
                 var result = MySettingStatic.GetAGenericThatThrowsAnException;
             }
         }
-    }
+
+	    [TestClass]
+	    public class EnsureBasicGetWorks
+	    {
+		    [TestMethod]
+		    public void when_value_is_empty_and_default_is_specified()
+		    {
+			    var defaultString = "123";
+			    var result = SimpleAppSettingHelper.CurrentAppSettings.Get("keyWithMissingValue", defaultString);
+				Assert.AreEqual(result,defaultString);
+		    }
+		}
+
+	    [TestClass]
+	    public class EnsureEnumGetWorks
+	    {
+		    [TestMethod]
+		    public void when_value_is_empty_and_default_is_specified()
+		    {
+			    var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("keyWithMissingValue", StorageTypes.TSQL);
+			    Assert.AreEqual(result, StorageTypes.TSQL);
+		    }
+
+		    [TestMethod]
+		    public void when_value_is_valid_enum_string()
+		    {
+			    var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("enumWithValidString", StorageTypes.TSQL);
+			    Assert.AreEqual(result, StorageTypes.Redis);
+		    }
+
+		    [TestMethod]
+		    public void when_value_is_valid_enum_int()
+		    {
+			    var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("enumWithValidInt", StorageTypes.TSQL);
+			    Assert.AreEqual(result, StorageTypes.Redis);
+		    }
+		}
+	}
 }

@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Examples\MySettingsV1.cs" />
     <Compile Include="Examples\MySettingStatic.cs" />
+    <Compile Include="Enums\StorageTypes.cs" />
     <Compile Include="Tests\DescribeCurrentAppSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
