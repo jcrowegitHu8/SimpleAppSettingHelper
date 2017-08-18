@@ -35,5 +35,5 @@ using SimpleAppSettingHelper;
 Version History:
 
 1.0.0.14
--Added support for Enums ex: GetEnum<T>(keyName, (Optional)defaultValue) 
+-Added support for Enums ex: GetEnum<T>(keyName, (Optional)defaultValue)
 -Added method Get(keyName, defaultValue)
