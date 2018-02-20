@@ -49,12 +49,21 @@ namespace SimpleAppSettingHelper
 		{
 			object value = Get(GetCurrentlyRunningApplicationConfig(), keyName, ifValueIsNullOrEmptyThrowArgumentException, String.Empty);
 
-			if (typeof(Guid) == typeof(T))
+            //If the type isn't a string return default of desired type
+
+            if ((string)value == String.Empty)
+            {
+                return default(T);
+            }
+
+            if (typeof(Guid) == typeof(T))
 			{
+                
 				//Be careful with using ConvertFromInvariantString. If your type is a DateTime and you have international date formats, this will blow up.
 				return (T)TypeDescriptor.GetConverter(typeof(T)).ConvertFromInvariantString(value.ToString());
 			}
-			return (T)Convert.ChangeType(value, typeof(T));
+
+            return (T)Convert.ChangeType(value, typeof(T));
 		}
 
 

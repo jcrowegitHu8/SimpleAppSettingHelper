@@ -9,6 +9,20 @@ namespace AppSettingHelperTest
         [TestClass]
         public class EnsureGenericsWork
         {
+            [ExpectedException(typeof(ArgumentException))]
+            [TestMethod]
+            public void when_its_a_string_that_does_not_exist()
+            {
+                var result = MySettingStatic.GetAGenericType_String_ThatDoesNotExist;
+            }
+
+            [TestMethod]
+            public void when_its_a_string_that_does_not_exist_and_shouldnot_throw_an_exception()
+            {
+                var result = MySettingStatic.GetAGenericType_String_ThatDoesNotExist_AndShouldNotThrowException;
+                Assert.AreEqual(result, null);
+            }
+
             [TestMethod]
             public void when_its_a_string()
             {
@@ -28,11 +42,25 @@ namespace AppSettingHelperTest
             }
 
             [TestMethod]
+            public void when_its_an_int_that_does_not_exist_and_shouldnot_throw_an_exception()
+            {
+                var result = MySettingStatic.GetAGenericType_Int_ThatDoesNotExist_AndShouldNotThrowException;
+                Assert.AreEqual(result, 0);
+            }
+
+            [TestMethod]
             public void when_its_a_guid()
             {
                 var result = MySettingStatic.GetAGenericType_Guid;
                 Assert.AreEqual(typeof(Guid), result.GetType());
                 Assert.AreEqual(Guid.Empty, result);
+            }
+
+            [TestMethod]
+            public void when_its_a_guid_that_does_not_exist_and_shouldnot_throw_an_exception()
+            {
+                var result = MySettingStatic.GetAGenericType_Guid_ThatDoesNotExist_AndShouldNotThrowException;
+                Assert.AreEqual(result, Guid.Empty);
             }
 
             [TestMethod]
@@ -44,11 +72,27 @@ namespace AppSettingHelperTest
             }
 
             [TestMethod]
+            public void when_its_a_bool_that_does_not_exist_and_shouldnot_throw_an_exception()
+            {
+                var result = MySettingStatic.GetAGenericType_Bool_ThatDoesNotExist_AndShouldNotThrowException;
+                Assert.AreEqual(result, false);
+            }
+
+
+
+            [TestMethod]
             public void when_its_a_datetime()
             {
                 var result = MySettingStatic.GetAGenericType_DateTime;
                 Assert.AreEqual(typeof(DateTime), result.GetType());
 
+            }
+
+            [TestMethod]
+            public void when_its_a_datetime_that_does_not_exist_and_shouldnot_throw_an_exception()
+            {
+                var result = MySettingStatic.GetAGenericType_DateTime_ThatDoesNotExist_AndShouldNotThrowException;
+                Assert.AreEqual(result, DateTime.MinValue);
             }
 
         }
@@ -103,41 +147,41 @@ namespace AppSettingHelperTest
             }
         }
 
-	    [TestClass]
-	    public class EnsureBasicGetWorks
-	    {
-		    [TestMethod]
-		    public void when_value_is_empty_and_default_is_specified()
-		    {
-			    var defaultString = "123";
-			    var result = SimpleAppSettingHelper.CurrentAppSettings.Get("keyWithMissingValue", defaultString);
-				Assert.AreEqual(result,defaultString);
-		    }
-		}
+        [TestClass]
+        public class EnsureBasicGetWorks
+        {
+            [TestMethod]
+            public void when_value_is_empty_and_default_is_specified()
+            {
+                var defaultString = "123";
+                var result = SimpleAppSettingHelper.CurrentAppSettings.Get("keyWithMissingValue", defaultString);
+                Assert.AreEqual(result, defaultString);
+            }
+        }
 
-	    [TestClass]
-	    public class EnsureEnumGetWorks
-	    {
-		    [TestMethod]
-		    public void when_value_is_empty_and_default_is_specified()
-		    {
-			    var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("keyWithMissingValue", StorageTypes.TSQL);
-			    Assert.AreEqual(result, StorageTypes.TSQL);
-		    }
+        [TestClass]
+        public class EnsureEnumGetWorks
+        {
+            [TestMethod]
+            public void when_value_is_empty_and_default_is_specified()
+            {
+                var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("keyWithMissingValue", StorageTypes.TSQL);
+                Assert.AreEqual(result, StorageTypes.TSQL);
+            }
 
-		    [TestMethod]
-		    public void when_value_is_valid_enum_string()
-		    {
-			    var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("enumWithValidString", StorageTypes.TSQL);
-			    Assert.AreEqual(result, StorageTypes.Redis);
-		    }
+            [TestMethod]
+            public void when_value_is_valid_enum_string()
+            {
+                var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("enumWithValidString", StorageTypes.TSQL);
+                Assert.AreEqual(result, StorageTypes.Redis);
+            }
 
-		    [TestMethod]
-		    public void when_value_is_valid_enum_int()
-		    {
-			    var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("enumWithValidInt", StorageTypes.TSQL);
-			    Assert.AreEqual(result, StorageTypes.Redis);
-		    }
-		}
-	}
+            [TestMethod]
+            public void when_value_is_valid_enum_int()
+            {
+                var result = SimpleAppSettingHelper.CurrentAppSettings.GetEnum("enumWithValidInt", StorageTypes.TSQL);
+                Assert.AreEqual(result, StorageTypes.Redis);
+            }
+        }
+    }
 }

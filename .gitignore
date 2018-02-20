@@ -5,3 +5,4 @@
 *\*.nupkg
 *.nupkg
 *.suo
+/.vs/SimpleAppSettingHelper/v15/Server/sqlite3

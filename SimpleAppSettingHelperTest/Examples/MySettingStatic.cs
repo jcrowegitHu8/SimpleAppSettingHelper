@@ -53,11 +53,35 @@ namespace AppSettingHelperTest
             }
         }
 
+        public static string GetAGenericType_String_ThatDoesNotExist
+        {
+            get
+            {
+                return CurrentAppSettings.Get<string>("genericStringThatDoesNotExist");
+            }
+        }
+
+        public static string GetAGenericType_String_ThatDoesNotExist_AndShouldNotThrowException
+        {
+            get
+            {
+                return CurrentAppSettings.Get<string>("genericStringThatDoesNotExist",false);
+            }
+        }
+
         public static int GetAGenericType_Int
         {
             get
             {
                 return CurrentAppSettings.Get<int>("genericInt");
+            }
+        }
+
+        public static int GetAGenericType_Int_ThatDoesNotExist_AndShouldNotThrowException
+        {
+            get
+            {
+                return CurrentAppSettings.Get<int>("genericIntThatDoesNotExist",false);
             }
         }
 
@@ -69,6 +93,14 @@ namespace AppSettingHelperTest
             }
         }
 
+        public static Guid GetAGenericType_Guid_ThatDoesNotExist_AndShouldNotThrowException
+        {
+            get
+            {
+                return CurrentAppSettings.Get<Guid>("genericGuidThatDoesNotExist", false);
+            }
+        }
+
         public static bool GetAGenericType_Bool
         {
             get
@@ -77,11 +109,27 @@ namespace AppSettingHelperTest
             }
         }
 
+        public static bool GetAGenericType_Bool_ThatDoesNotExist_AndShouldNotThrowException
+        {
+            get
+            {
+                return CurrentAppSettings.Get<bool>("genericBoolThatDoesNotExist", false);
+            }
+        }
+
         public static DateTime GetAGenericType_DateTime
         {
             get
             {
                 return CurrentAppSettings.Get<DateTime>("genericDateTime");
+            }
+        }
+
+        public static DateTime GetAGenericType_DateTime_ThatDoesNotExist_AndShouldNotThrowException
+        {
+            get
+            {
+                return CurrentAppSettings.Get<DateTime>("genericDateTimeThatDoesNotExist", false);
             }
         }
 
