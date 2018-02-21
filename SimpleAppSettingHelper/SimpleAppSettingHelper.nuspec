@@ -8,7 +8,7 @@
     <owners>$author$</owners>
     <licenseUrl>https://github.com/jcrowegitHu8/SimpleAppSettingHelper/blob/master/LICENSE.md</licenseUrl>
     <projectUrl>https://github.com/jcrowegitHu8/SimpleAppSettingHelper</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <iconUrl>https://github.com/jcrowegitHu8/SimpleAppSettingHelper/blob/master/Images/Data-Settings-256.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Fix that generic get didn't return default value of expected type.</releaseNotes>
