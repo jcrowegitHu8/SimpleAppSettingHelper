@@ -1,7 +1,7 @@
 # SimpleAppSettingHelper
 A simple tool to allow you to quickly pull an application setting from your web or console app, while specifying its return type.
 
-##Basic Usage
+## Basic Usage
 ```xml
 <!-- Example of supported types -->
 <appSettings>
@@ -31,9 +31,27 @@ using SimpleAppSettingHelper;
   var aBool = CurrentAppSettings.Get<bool>("my:Bool");
   var aDate = CurrentAppSettings.Get<DateTime>("my:DateTime");
 ```
+## Default Values returned from generic method when an exception will not be thrown.
+```csharp
+  //Default of 0
+  var anInt = CurrentAppSettings.Get<int>("my:Int", false);
+  
+  //Default of Guid.Empty
+  var aGuid = CurrentAppSettings.Get<Guid>("my:Guid", false);
+  
+  //Default of false
+  var aBool = CurrentAppSettings.Get<bool>("my:Bool", false);
+  
+  //Default of DateTime.Min
+  var aDate = CurrentAppSettings.Get<DateTime>("my:DateTime", false);
+```
 
 Version History:
 
+1.0.0.17
+* Fix that generic get method was not returning default value of expected type.
+* Added image and details to .nuspec for improved gallery experience.
+
 1.0.0.14
--Added support for Enums ex: GetEnum<T>(keyName, (Optional)defaultValue)
--Added method Get(keyName, defaultValue)
+* Added support for Enums ex: GetEnum<T>(keyName, (Optional)defaultValue)
+* Added method Get(keyName, defaultValue)
